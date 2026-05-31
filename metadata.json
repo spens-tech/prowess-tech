@@ -1,0 +1,6 @@
+{
+  "name": "Prowess Technologies",
+  "description": "Colombo's premier creative marketing agency, specializing in video production, brand design, social media strategy, and ad campaigns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
