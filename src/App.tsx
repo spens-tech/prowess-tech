@@ -26,8 +26,6 @@ import {
 } from 'lucide-react';
 import { SERVICES, PROJECTS, TESTIMONIALS, TEAM } from './data';
 import { Service, Project, Testimonial, ProjectInquiry } from './types';
-import { Studio } from 'sanity';
-import sanityConfig from '../sanity.config';
 import { client, isSanityConfigured, urlFor } from './lib/sanity';
 
 // Custom reusable SVG Logo that adapts beautifully to dark/light backgrounds
@@ -122,11 +120,6 @@ function ImageSlot({ alt, className = '', isCircle = false }: { alt: string; cla
 }
 
 export default function App() {
-  // If the URL route is /studio, boot the Sanity Studio dashboard directly
-  if (window.location.pathname.startsWith('/studio')) {
-    return <Studio config={sanityConfig} />;
-  }
-
   // --- Sanity Fetched CMS States ---
   const [siteSettings, setSiteSettings] = useState<any>(null);
   const [heroData, setHeroData] = useState<any>(null);
