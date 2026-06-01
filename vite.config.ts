@@ -11,6 +11,35 @@ export default defineConfig(() => {
         '@': path.resolve(__dirname, '.'),
       },
     },
+    // Prevent Sanity Studio packages from being pre-bundled or included
+    optimizeDeps: {
+      exclude: [
+        'sanity',
+        '@sanity/vision',
+        'sanity/desk',
+        'sanity/router'
+      ]
+    },
+    // Treat Sanity Studio packages as external during the site build
+    build: {
+      rollupOptions: {
+        external: [
+          'sanity',
+          '@sanity/vision',
+          'sanity/desk',
+          'sanity/router'
+        ]
+      }
+    },
+    // Ensure SSR also treats these deps as external (if SSR is used)
+    ssr: {
+      external: [
+        'sanity',
+        '@sanity/vision',
+        'sanity/desk',
+        'sanity/router'
+      ]
+    },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
       // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
